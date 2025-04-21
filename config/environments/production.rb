@@ -1,5 +1,6 @@
 require "active_support/core_ext/integer/time"
-
+config.action_cable.mount_path = nil
+config.action_cable.allowed_request_origins = []
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
