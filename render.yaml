@@ -1,21 +1,23 @@
+databases:
+  - name: mysite
+    databaseName: mysite
+    user: mysite
+    plan: free
+
 services:
   - type: web
-    name: tu-app-rails
+    name: mysite
     runtime: ruby
-    buildCommand: "./bin/render-build"
-    startCommand: "bundle exec puma -C config/puma.rb"
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    # preDeployCommand: "bundle exec rails db:migrate" # preDeployCommand only available on paid instance types
+    startCommand: "bundle exec rails server"
     envVars:
-      - key: RAILS_ENV
-        value: production
-      - key: RAILS_MASTER_KEY
-        sync: false  # Usará la variable que configures en Render
       - key: DATABASE_URL
         fromDatabase:
-          name: edahi_database
+          name: mysite
           property: connectionString
-
-databases:
-  - name: edahi_database
-    databaseName: edahi_database
-    user: edahi_database_user
-    plan: free  # Para empezar (cambia a paid en producción real)
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: WEB_CONCURRENCY
+        value: 2 # sensible default
