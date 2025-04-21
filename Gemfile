@@ -70,3 +70,4 @@ gem 'active_model_serializers'
 gem 'fast_jsonapi'
 
 gem 'solid_queue'
+
