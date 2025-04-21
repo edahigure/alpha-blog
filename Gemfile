@@ -66,7 +66,7 @@ end
 gem 'pg'
 
 group :production do
-  gem 'sqlite3'
+  gem "sqlite3", ">= 2.1"
 end 
 
 gem 'rack-cors'
