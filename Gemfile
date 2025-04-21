@@ -68,3 +68,5 @@ gem 'rack-cors'
 gem 'active_model_serializers'
 # o
 gem 'fast_jsonapi'
+
+gem 'solid_queue'
