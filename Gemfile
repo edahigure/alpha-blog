@@ -49,12 +49,12 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 end
-
+gem 'pg'
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
   # Use sqlite3 as the database for Active Record
-  gem "sqlite3", ">= 2.1"
+  
 end
 
 group :test do
@@ -63,10 +63,10 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem 'pg'
+
 
 group :production do
-  gem "sqlite3", ">= 2.1"
+
 end 
 
 gem 'rack-cors'
