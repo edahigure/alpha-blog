@@ -68,3 +68,9 @@ gem 'pg'
 group :production do
   gem 'sqlite3'
 end 
+
+gem 'rack-cors'
+
+gem 'active_model_serializers'
+# o
+gem 'fast_jsonapi'
