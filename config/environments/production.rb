@@ -1,7 +1,12 @@
 require "active_support/core_ext/integer/time"
-config.action_cable.mount_path = nil
-config.action_cable.allowed_request_origins = []
 Rails.application.configure do
+
+  # Dentro de este bloque puedes usar config
+  config.action_cable.mount_path = nil if defined?(ActionCable)
+  
+  # Configuraciones esenciales
+  config.cache_classes = true
+  config.eager_load = true
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
