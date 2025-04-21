@@ -17,14 +17,5 @@ test:
   database: tu_app_test
 
 production:
-  <<: *default
-  database: edahi_database
-  username: <%= ENV['DB_USER'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
-  host: <%= ENV['DB_HOST'] %>
-  port: 5432
-
-  # Configuración específica para Action Cable
-  cable:
-    adapter: redis
-    url: <%= ENV['REDIS_URL'] || 'redis://localhost:6379/1' %>
+  url: <%= ENV['DATABASE_URL'] %>
+  sslmode: require

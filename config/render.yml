@@ -1,16 +1,21 @@
 services:
   - type: web
-    name: alpha-blog
-    env: production
+    name: rails-web
+    runtime: ruby
     buildCommand: "./bin/render-build"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
+      - key: RAILS_ENV
+        value: production
+      - key: RAILS_MASTER_KEY
+        sync: false
       - key: DATABASE_URL
         fromDatabase:
-          name: edahi_database
+          name: railsdb
           property: connectionString
-      - key: REDIS_URL
-        fromService:
-          name: redis
-          type: redis
-          property: connectionString
+
+databases:
+  - name: railsdb
+    databaseName: edahi_database
+    user: edahi
+    plan: free # Para empezar
