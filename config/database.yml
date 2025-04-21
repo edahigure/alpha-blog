@@ -85,3 +85,10 @@ production:
   url: <%= ENV['DATABASE_URL'] %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   sslmode: require 
+    
+    # Configuración para Solid Queue
+  queue:
+    <<: *default
+    adapter: postgresql
+    database: tu_app_queue
+    migrations_paths: db/queue_migrate
