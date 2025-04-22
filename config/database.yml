@@ -91,4 +91,5 @@ production:
     <<: *default
     adapter: postgresql
     database: tu_app_queue
+    url: <%= ENV['DATABASE_URL'] %>
     migrations_paths: db/queue_migrate
