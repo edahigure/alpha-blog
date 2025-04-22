@@ -12,5 +12,5 @@ test:
   <<: *default
 
 production:
-  database: cache
-  <<: *default
+  store: memory_store  # Fallback to memory (or use :redis_store, :file_store, etc.)
+  namespace: myapp_cache
