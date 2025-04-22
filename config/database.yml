@@ -93,3 +93,5 @@ production:
     database: tu_app_queue
     url: <%= ENV['DATABASE_URL'] %>
     migrations_paths: db/queue_migrate
+  cache:
+    url: <%= ENV['CACHE_DATABASE_URL'] || ENV['DATABASE_URL'] %>
